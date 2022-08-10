@@ -1,11 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom'
 // import Admin from './Admin'
 // import NewBook from './NewBook'
 import Maps from './Maps'
 const Home = () => {
+  const { user} = useSelector((state) => ({ ...state.auth }));
+
+  const navigate=useNavigate()
+  
+  useEffect(()=>{
+    
+  })
   return (
     <div className='information'>
 {/* <NewBook/> */}
+{user ? navigate('/main'):navigate('/login') }
+
       
        <div className="story"><spam className="bigstory">Swift booking ambulance</spam><br></br>
        <spam className="smallstory">This is a system that saves you a lot of time by

@@ -22,22 +22,22 @@ height: 10rem;
  }
     .sidebar{
       display:  flex;
-      flex-direction: column;
-      /* height: 40vh; */
-      margin: 2rem;
-      gap: 2rem;
-      /* width: 10rem; */
-      justify-content: center;
-      align-items: center;
-      transition: 1s;
-      /* width: 100%; */
-    
+      flex-direction: row !important;
+      width: 100%;
+    }
+    .intro{
+      display: none;
     }
    .side-links{
+    display:  flex;
+      flex-direction: row !important;
     background-color: rgb(21, 13, 29);
     width: 100%;
     align-items: center;
     justify-content: center;
+    margin-right: 1rem;
+    height: 3rem;
+    gap: 3rem;
    }
    .navbar{
     width: 100%;
@@ -70,6 +70,9 @@ height: 10rem;
   /* background-color: rgb(161, 154, 154);
   opacity: 0.9; */
 } 
+.dcor{
+  margin-right:1rem ;
+}
 .links{
   display: flex;
   flex-direction: row;
@@ -93,17 +96,17 @@ height: 10rem;
 
 /* sidebar */
 
-.side-links{
+/* .side-links{
   display: flex;
   flex-direction: column;
   gap: 3rem;
-}
+} */
 
-.side-contact-link{
+/* .side-contact-link{
   display: flex;
   flex-direction: column;
   gap: 1rem;
-}
+} */
 
 
   

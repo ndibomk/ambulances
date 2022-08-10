@@ -29,10 +29,8 @@ const handleLogout= ()=>{
           </h1>
         </div>
         <div className="sidebar">
-          <div onClick={activeNav}  className={show ? 'side-icons' :'header-list' }>
-           {!show ? (<GiHamburgerMenu className='herberger' />):<FaTimes className='herberger'/> }
-          </div>
-         { show ? 
+         
+        
 
         
           <div className="side-links">
@@ -44,12 +42,12 @@ const handleLogout= ()=>{
  :     null    
  
                } 
-               {user?.result?.isAdmin ?   (  
+               {/* {user?.result?.isAdmin ?   (  
               <Link className='decor' to='/main'><li className='link'id="link">Admin Dashboard</li></Link>
           )
 :     null    
 
-              } 
+              }  */}
           
                 {user?.result?._id ? (
                  <>
@@ -85,7 +83,7 @@ const handleLogout= ()=>{
 
               }    
       
-          </div>:null }
+          </div>
         </div> 
         <div className="nav-links">
             <ul className="links">
