@@ -56,11 +56,11 @@ const Summary = () => {
               },[])
 
   return (
-    <div style={{marginLeft:'3rem',color:'white',fontSize:'2rem'}}>
-        <div className="usersSummary">
+    <div style={{color:'white',fontSize:'2rem'}}>
+        {/* <div className="usersSummary">
           <p> Bookings : {users[0]?.total}</p> 
           <p> Users: {userss[0]?.total}</p> 
-        </div>
+        </div> */}
         <div className="map-items">
            <div className="map">
             <Maps/>

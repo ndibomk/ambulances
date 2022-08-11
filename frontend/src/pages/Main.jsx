@@ -57,19 +57,22 @@ const Main = () => {
 export default Main
 const StyledDashboard = styled.div`
   display: flex;
-  height: 100vh;
+  height: 4rem;
   flex-wrap:wrap;
+  width: 100%;
+  margin:1rem;
 `;
 
 const SideNav = styled.div`
   border-right: 1px solid gray;
-  height: calc(100vh - 70px);
-  position: fixed;
+  height:70px;
+  /* position: fixed; */
   overflow-y: auto;
-  width: 200px;
+  width: 30%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   padding: 2rem;
+  gap: 3rem;
   color:bisque;
   background-color: #806a78;
 
@@ -82,7 +85,7 @@ const SideNav = styled.div`
 
   a {
     text-decoration: none;
-    margin-bottom: 1rem;
+  
     font-size: 14px;
     color:black;
     font-size:1.3rem;

@@ -42,7 +42,7 @@ const Admin = () => {
   return (
     <>
      <h3>Admin Dash boad</h3>
-    <div style={{marginTop:'4rem', marginLeft:'4rem'}} className='users-books' >
+    <div style={{marginTop:'4rem'}} className='users-books' >
       {users.map((items)=>{
         return(
           <div className="deta">
