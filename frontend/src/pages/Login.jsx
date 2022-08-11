@@ -26,16 +26,12 @@ const Login = () => {
     e.preventDefault();
     if (email && password) {
       dispatch(login({ formValue, navigate, toast }));
-      navigate('/main')
+     
     }
   };
  
 
-  useEffect(() => {
-    if(email){
-      navigate('/main')
-    }
-  }, [])
+
 
   
 
