@@ -1,16 +1,17 @@
 
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Room, Star, StarBorder } from "@material-ui/icons";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import './App.css'
 import { format } from "timeago.js";
+import * as turf from '@turf/turf';
 const url='http://localhost:5000/pins'
 
 function Book() {
   const notify = () => toast("Booke sucessfully!");
-
+  const GEOFENCE = turf.circle([1.3107, 36.8250], 5, {units: 'miles'})
   const myStorage = window.localStorage;
   const [currentUsername, setCurrentUsername] = useState(myStorage.getItem("profile"));
   const [pins, setPins] = useState([]);
@@ -20,6 +21,7 @@ function Book() {
   const [name, setName] = useState(null);
   const [desc, setDesc] = useState(null);
   const [star, setStar] = useState(0);
+  const [distance, setDistance] = useState(null);
   const [stars, setStars] = useState([]);
 function successLocation (position) {
 setStars([position.coords.longitude,position.coords.latitude])
@@ -35,15 +37,20 @@ let errorLocation= (position)=>{
 
   const location =navigator.geolocation.getCurrentPosition(successLocation,
     errorLocation,{enableHighAccuracy:true})
-    console.log(location);
+
   const [viewport, setViewport] = useState({
     latitude: 1.3107,
     longitude: 36.8250,
     zoom: 6,
     
   });
-  const [showRegister, setShowRegister] = useState(false);
-  const [showLogin, setShowLogin] = useState(false);
+  const onMove = React.useCallback(({viewState}) => {
+    const newCenter = [viewState.longitude, viewState.latitude];
+    // Only update the view state if the center is inside the geofence
+    if (turf.booleanPointInPolygon(newCenter, GEOFENCE)) {
+      setViewport(newCenter);
+    }
+  }, [])
 
   const handleMarkerClick = (id, lat, long) => {
     setCurrentPlaceId(id);
@@ -56,6 +63,7 @@ let errorLocation= (position)=>{
       lat: latitude,
       long: longitude,
     });
+    // console.log('newplace', newPlace.lat);
   };
 console.log( 'hello' ,currentPlaceId+newPlace)
   const handleSubmit = async (e) => {
@@ -68,6 +76,7 @@ console.log( 'hello' ,currentPlaceId+newPlace)
       rating: star,
       lat: newPlace.lat,
       long: newPlace.long,
+      distance
       
     };
 
@@ -105,6 +114,7 @@ console.log( 'hello' ,currentPlaceId+newPlace)
         width="100%"
         height="100%"
         transitionDuration="200"
+        onMove={onMove}
         mapStyle="mapbox://styles/safak/cknndpyfq268f17p53nmpwira"
         onViewportChange={(viewport) => setViewport(viewport)}
         onDblClick={currentUsername && handleAddClick}
@@ -135,7 +145,7 @@ console.log( 'hello' ,currentPlaceId+newPlace)
             <Marker
 
               latitude={1}
-              longitude={36}
+              longitude={38}
               offsetLeft={-3.5 * viewport.zoom}
               offsetTop={-7 * viewport.zoom}
             >
@@ -153,12 +163,12 @@ console.log( 'hello' ,currentPlaceId+newPlace)
             </Marker>
             <Marker
 
-              latitude={1}
-              longitude={36}
+              latitude={0.5}
+              longitude={35}
               offsetLeft={-3.5 * viewport.zoom}
               offsetTop={-7 * viewport.zoom}
             >
-              <h5 style={{marginLeft:'4rem',marginTop:'6rem'}}>ambu3</h5>
+              <h5 style={{marginLeft:'4rem',marginTop:'6.5rem'}}>ambu3</h5>
               <Room
                 style={{
                   fontSize: 7 * viewport.zoom,
@@ -174,7 +184,7 @@ console.log( 'hello' ,currentPlaceId+newPlace)
             <Marker
 
 latitude={0.95}
-longitude={37}
+longitude={36}
 offsetLeft={-3.5 * viewport.zoom}
 offsetTop={-7 * viewport.zoom}
 >
@@ -213,7 +223,7 @@ offsetTop={-7 * viewport.zoom}
 </Marker>
 <Marker
 
-latitude={-0.3}
+latitude={-0.2}
 longitude={35.8}
 offsetLeft={-3.5 * viewport.zoom}
 offsetTop={-7 * viewport.zoom}
@@ -301,7 +311,7 @@ offsetTop={-7 * viewport.zoom}
                     onChange={(e) => setTitle(e.target.value)}
                   />
                   <label>Ambulance Booked</label>
-                  <textarea
+                  <input
                     placeholder="Ambulance"
                     onChange={(e) => setDesc(e.target.value)}
                   />
@@ -313,6 +323,16 @@ offsetTop={-7 * viewport.zoom}
                     <option value="3">3</option>
                     <option value="4">4</option>
                     <option value="5">5</option>
+                  </select>
+                  <label htmlFor="">Distnace</label>
+                  <select onChange={(e) => setDistance(e.target.value)}>
+                    <option value="1">ambulance 1 :{Math.abs((1-newPlace.lat)^2-(36-newPlace.long)^2)} miles</option>
+                    <option value="2">ambulance 2 :{Math.abs((1-newPlace.lat)^2-(38-newPlace.long)^2)}miles</option>
+                    <option value="3">ambulance 3 :{Math.abs((0.5-newPlace.lat)^2-(35-newPlace.long)^2)}miles</option>
+                    <option value="4">ambulance 4 :{Math.abs((0.95-newPlace.lat)^2-(36-newPlace.long)^2)}miles</option>
+                    <option value="5">ambulance 5 :{Math.abs((1.6-newPlace.lat)^2-(36.9-newPlace.long)^2)}miles</option>
+                    <option value="5">ambulance 6 :{Math.abs((-0.2-newPlace.lat)^2-(35.8-newPlace.long)^2)}miles</option>
+
                   </select>
                   <button onClick={notify} type="submit" className="submitButton">
                     Add Pin

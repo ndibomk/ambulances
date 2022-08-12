@@ -36,6 +36,10 @@ const PinSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    distance: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );

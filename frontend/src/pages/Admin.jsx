@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import Maps from './Maps'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 const Admin = () => {
     const {user}=useSelector((state)=>({...state.auth}))
     const userId =user?.result?._id
@@ -15,7 +16,7 @@ const Admin = () => {
       try {
         const res= await axios.get('http://localhost:5000/pins')
         setUsers(  res.data)
-        console.log('users',users);
+        console.log('users',users[0].lat);
        } catch (error) {
         console.log(error);
   
@@ -23,6 +24,8 @@ const Admin = () => {
         
       }
       }
+      const link =`https://www.google.com/maps/@ ${-1.287268, 36.777769},12z`
+
       fetchData()
         },[])
         useEffect(()=>{
@@ -39,18 +42,23 @@ const Admin = () => {
           }
           fetchData()
             },[])
+
+
+
   return (
     <>
      <h3>Admin Dash boad</h3>
-    <div style={{marginTop:'4rem'}} className='users-books' >
+
+ <div style={{marginTop:'4rem'}} className='users-books' >
       {users.map((items)=>{
         return(
           <div className="deta">
 <p>Name: {items.name}</p>
 <p>Place: {items.title}</p>
-<p>description: {items.desc}</p>
+<p>ambulance: {items.desc}</p>
 <p>Codition: {items.rating}</p>
-<p>Distance: {items.rating}Km</p>
+<p>Distance: {items.distance}miles</p>
+<a href ="https://www.google.com/maps/@{items.lat, items.long},12z">Vew</a>
         </div>
         )
         

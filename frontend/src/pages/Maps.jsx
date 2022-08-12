@@ -34,6 +34,7 @@ function Book() {
       lat: latitude,
       long: longitude,
     });
+    console.log('newPlace', newPlace);
   };
 
   const handleSubmit = async (e) => {
@@ -120,6 +121,8 @@ function Book() {
                   <p className="place">{p.title}</p>
                   <label>Ambulance</label>
                   <p className="desc">{p.desc}</p>
+                  <label>distance</label>
+                  <p className="desc">{p.distance}miles</p>
                   <label>latitude</label>
                   <p className="desc">{p.lat}</p>
                   <label>lontude</label>
