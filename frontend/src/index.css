@@ -11,6 +11,19 @@ body{
     padding-right: 17rem;
   
   }
+  li{
+    margin-right: 80px;
+    padding: 10px;
+    text-decoration: none;
+    list-style: none;
+    color:rgb(39, 237, 237);
+    font-family: Arial;
+    font-size: 30px;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: black;
+    margin-top: 30px;
+    border-radius: 10px;
+  }
   
   
 .sidebar{
@@ -31,7 +44,7 @@ height: 10rem;
    .side-links{
     display:  flex;
       flex-direction: row !important;
-    background-color: rgb(21, 13, 29);
+    background-color: rgb(21, 13, 29) !important;
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -85,7 +98,7 @@ height: 10rem;
 .link{
   list-style: none;
   text-decoration: none;
-  color: rgb(250, 246, 246) !important;
+  color: rgb(161, 234, 234) !important;
 }
 .link:hover{
   color: black !important;
