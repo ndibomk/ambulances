@@ -44,7 +44,7 @@ const Register = () => {
         <div className='labels'>
 
         <td>
-  <tr><label for="name">Full names</label></tr>
+  <tr><label className="lable" for="name">Full names</label></tr>
         <tr><input
         id="name"
           type="text"
@@ -57,7 +57,7 @@ const Register = () => {
         </div>
         <div className='labels'>
         <td>
-  <tr><label for="emails">Email</label></tr>
+  <tr><label className="lable" for="emails">Email</label></tr>
        <tr> <input
        id="emails"
           type="email"
@@ -71,7 +71,7 @@ const Register = () => {
         <div className="con">
         <div className='labels'>
         <td>
-  <tr><label for="passwords">Password</label></tr>
+  <tr><label className="lable" for="passwords">Password</label></tr>
        <tr> 
         <input
         id="passwords"
@@ -85,7 +85,7 @@ const Register = () => {
         </div>
         <div className='labels'>
         <td>
-  <tr><label for="Phonenumber">Password</label></tr>
+  <tr><label className="lable" for="Phonenumber">Phonenumber</label></tr>
        <tr> 
          <input
          id="Phonenumber"
@@ -101,7 +101,7 @@ const Register = () => {
         <div className="con">
         <div className='labels'>
         <td>
-  <tr><label for="dob">Date of birth</label></tr>
+  <tr><label className="lable" for="dob">Date of birth</label></tr>
        <tr>
          <input
          id="dob"
@@ -113,7 +113,7 @@ const Register = () => {
         </div>
         <div className='labels'>
         <td>
-  <tr><label for="allergy">Allergy</label></tr>
+  <tr><label className="lable" for="allergy">Allergy</label></tr>
        <tr>
          <input
          id="allergy"
@@ -127,7 +127,7 @@ const Register = () => {
         <div className="con">
         <div className='labels'>
         <td>
-        <tr><label for="bloodgroup">Choose your bloodgroup</label></tr>
+        <tr><label className="lable" for="bloodgroup">Choose your bloodgroup</label></tr>
        <tr>
          <input
          id="Bloodgroups"
@@ -137,7 +137,7 @@ const Register = () => {
           onChange={(e) => setFormValue({ ...formValue, bloodGroup: e.target.value })}
         />
        
-<datalist id="bloodgroup">
+<datalist id="bloodgroup" placeholder="bloodgroup type">
   <option >A+</option>
   <option >A-</option>
   <option >B+</option>
@@ -153,9 +153,9 @@ const Register = () => {
         </div>
         <div className='labels'>
         <td>
-  <tr><label for="important">Password</label></tr>
+  <tr><label className="lable" for="important">Important information</label></tr>
        <tr>
-         <textarea  rows="5" cols="28"
+         <textarea  rows="4" cols="28"
          id="important"
           type="text"
           placeholder="aob"
