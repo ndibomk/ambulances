@@ -326,12 +326,12 @@ offsetTop={-7 * viewport.zoom}
                   </select>
                   <label htmlFor="">Distnace</label>
                   <select onChange={(e) => setDistance(e.target.value)}>
-                    <option value="1">ambulance 1 :{Math.abs((1-newPlace.lat)^2-(36-newPlace.long)^2)} miles</option>
-                    <option value="2">ambulance 2 :{Math.abs((1-newPlace.lat)^2-(38-newPlace.long)^2)}miles</option>
-                    <option value="3">ambulance 3 :{Math.abs((0.5-newPlace.lat)^2-(35-newPlace.long)^2)}miles</option>
-                    <option value="4">ambulance 4 :{Math.abs((0.95-newPlace.lat)^2-(36-newPlace.long)^2)}miles</option>
-                    <option value="5">ambulance 5 :{Math.abs((1.6-newPlace.lat)^2-(36.9-newPlace.long)^2)}miles</option>
-                    <option value="5">ambulance 6 :{Math.abs((-0.2-newPlace.lat)^2-(35.8-newPlace.long)^2)}miles</option>
+                    <option value="1">ambulance 1 :{Math.sqrt(Math.abs((1-newPlace.lat)^2-(36-newPlace.long)^2))} miles</option>
+                    <option value="2">ambulance 2 :{Math.sqrt(Math.abs((1-newPlace.lat)^2-(38-newPlace.long)^2))}miles</option>
+                    <option value="3">ambulance 3 :{Math.sqrt(Math.abs((0.5-newPlace.lat)^2-(35-newPlace.long)^2))}miles</option>
+                    <option value="4">ambulance 4 :{Math.sqrt(Math.abs((0.95-newPlace.lat)^2-(36-newPlace.long)^2))}miles</option>
+                    <option value="5">ambulance 5 :{Math.sqrt(Math.abs((1.6-newPlace.lat)^2-(36.9-newPlace.long)^2))}miles</option>
+                    <option value="5">ambulance 6 :{Math.sqrt(Math.abs((-0.2-newPlace.lat)^2-(35.8-newPlace.long)^2))}miles</option>
 
                   </select>
                   <button onClick={notify} type="submit" className="submitButton">
