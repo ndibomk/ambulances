@@ -61,7 +61,7 @@ const SideNav = styled.div`
   height:70px;
   /* position: fixed; */
   overflow-y: auto;
-  width: 30%;
+  width: 31%;
   display: flex;
   flex-direction: row;
   padding: 2rem;
