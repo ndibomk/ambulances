@@ -53,12 +53,13 @@ const Admin = () => {
       {users.map((items)=>{
         return(
           <div className="deta">
+            {/* https://www.google.com/maps/place/Eastleigh+Mall/@-1.2877824,36.8410624,12z/data=!4m5!3m4!1s0x182f16b4d06c5de9:0x42b7b53a6bbb65d8!8m2!3d-1.2787097!4d36.8497558 */}
 <p>Name: {items.name}</p>
 <p>Place: {items.title}</p>
 <p>ambulance: {items.desc}</p>
 <p>Codition: {items.rating}</p>
 <p>Distance: {items.distance}miles</p>
-<a href ="https://www.google.com/maps/@{items.lat, items.long},12z">Vew</a>
+<a href ={`https://www.google.com/maps/place/${items.place}/@${items.lat}, ${items.long},12z`}>View</a>
         </div>
         )
         
