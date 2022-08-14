@@ -18,14 +18,7 @@ const Main = () => {
             <StyledDashboard>
       <SideNav>
         <h3>Quick Links</h3>
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "link-active" : "link-inactive"
-          }
-          to="/main/summary"
-        >
-          Summary
-        </NavLink>
+        
         <NavLink
           className={({ isActive }) =>
             isActive ? "link-active" : "link-inactive"
