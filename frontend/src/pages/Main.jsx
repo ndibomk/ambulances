@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import styled from "styled-components";
-
+// git remote set-url origin https://github.com/ndibomk/ambulances.git
 import Admin from './Admin'
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 
