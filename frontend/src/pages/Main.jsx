@@ -8,6 +8,7 @@ import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import Book from './Book'
 // import User from './User'
 import { ToastContainer, toast } from 'react-toastify';
+import MainAdmin from './MainAdmin';
 const Main = () => {
 
 
@@ -17,10 +18,11 @@ const Main = () => {
   if(user?.result?.isAdmin){
     return(
         <div>
+         
              <div >
             <StyledDashboard>
       <SideNav>
-        <h3>Quick Links</h3>
+       <p>View</p><MainAdmin/>
         
         <NavLink
           className={({ isActive }) =>

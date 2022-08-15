@@ -15,6 +15,12 @@ import Admin from './pages/Admin'
 import Summary from './pages/Summary'
 import Navbar from './components/Navbar'
 import Error from './pages/Error'
+import Driver1 from './pages/Driver1'
+import Driver2 from './pages/Driver2'
+import Driver3 from './pages/Driver3'
+import Driver4 from './pages/Driver4'
+import Driver5 from './pages/Driver5'
+import Driver6 from './pages/Driver6'
 const App = () => {
   const dispatch = useDispatch();
   const user = JSON.parse(localStorage.getItem("profile"));
@@ -38,6 +44,12 @@ const App = () => {
           <Route path='admin' element={<Admin/>}/>
     <Route index element={<Summary/>}/>
     </Route>
+    <Route path='/ambu1' element={<Driver1/>}/>
+    <Route path='/ambu2' element={<Driver2/>}/>
+    <Route path='/ambu3' element={<Driver3/>}/>
+    <Route path='/ambu4' element={<Driver4/>}/>
+    <Route path='/ambu5' element={<Driver5/>}/>
+    <Route path='/ambu6' element={<Driver6/>}/>
     <Route path='/admin' element={<Main/>}/>
     <Route path='*' element={<Error/>}/>
    </Routes>
